@@ -15,7 +15,7 @@ class EditViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        initView()
     }
     // MARK: - FUNCTIONS
     
@@ -41,7 +41,7 @@ class EditViewController: UIViewController {
     // MARK: - ACTIONS
 
     @IBAction func editTapped(_ sender: Any) {
-        apiEditPost(post: Post(title: newTitle.text!, body: newBody.text!), handler: {isEdited in
+        apiEditPost(post: Post(id: (editPost?.id)!,title: newTitle.text!, body: newBody.text!), handler: {isEdited in
             if isEdited{
                 self.navigationController?.dismiss(animated: true)
             }
